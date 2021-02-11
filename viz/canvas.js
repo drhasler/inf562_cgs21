@@ -28,17 +28,17 @@ function draw(positions, color) {
 }
 
 (async () => {
-	let positions = (await d3.json('/problem.json')).starts.map(
+	let positions = (await d3.json('problem.json')).starts.map(
 		(d, i) => [i, d[1], d[0]]);
 
-	let transitions = (await d3.json('/solution.json')).steps.map(d => {
+	let transitions = (await d3.json('solution.json')).steps.map(d => {
 		let ret = [];
 		for (let [key, dir] of Object.entries(d))
 			ret.push([+key, dir]);
 		return ret;
 	});
 
-	let color = (await d3.json('/bernie.json')).cols;
+	let color = (await d3.json('bernie.json')).cols;
 
 	draw(positions, color);
 
